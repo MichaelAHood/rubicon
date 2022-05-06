@@ -55,3 +55,5 @@ Have fun!
 # To Do:
 - Figure out how to programmatically override the contents of `src/auto-move.js` in the browser. This way we don't have to open dev tools every time. Maybe `selenium` can do this.
 - Create a proper RL policy that responds to changes in game state, rather than a manual one tailored to each opponent.
+- Adding logging for debug and info purposes
+- Adding some tests (this will mainly be helpful for making sure the RL components are working as intended)

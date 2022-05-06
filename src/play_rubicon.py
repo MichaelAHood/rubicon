@@ -1,3 +1,11 @@
+"""
+This script has 4 main steps:
+- It uses Chromedriver to open a browser and navigate to the target URL.
+- It creates some formatted Javascript to run via Chromedriver.
+- It polls browser local storage to determine when the game starts.
+- On every iteration of the game it plays the move designated by the policy until the game is over.
+"""
+
 import argparse
 import time
 from string import Template
@@ -19,11 +27,11 @@ def main(policy_name):
     storage = LocalStorage(driver)
 
     # Open the page and wait it for it to load and for the user
-    # to paste js/auto-move-override.js to src/auto-move.js in the browser
+    # to paste contents of js/auto-move-override.js to src/auto-move.js in the browser
     driver.get(GAME_URL)
     time.sleep(10)
 
-    # JS for the browser console
+    # JS to be executed by web driver
     play_game_template = Template(js_helpers["play_game_template"])
     play_game_routine = play_game_template.substitute(moves=policy)
 
@@ -36,6 +44,7 @@ def main(policy_name):
         time.sleep(0.1)
         game_state = get_game_state(storage)
 
+    # As long as the game is in play, run the JS routine
     while game_state["playing"]:
         driver.execute_script(play_game_routine)
         time.sleep(0.1)
@@ -49,7 +58,7 @@ if __name__ == "__main__":
         "--policy",
         type=str,
         dest="policy",
-        help="Choose one of 'robo-baby', 'robo-julius', 'robo-caesar'.",
+        help="Choose one of 'baby', 'julius', or 'caesar'.",
     )
     args = parser.parse_args()
 
