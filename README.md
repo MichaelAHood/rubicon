@@ -8,7 +8,7 @@ This repo contains code that I created over the last several days while attempti
 
 First, a little background on how I ended up with this current incarnation of a solution.
 
-After playing about a dozen games of Rubicon, the rules become clear. From here it was relatively straightforward to beat the AI. However, when attempting to play against the "robo" adversaries with the absurdly low five second limit, it was obvious that the only way to win was to somehow "cheat" and get an edge over the AI. 
+After playing about a dozen games of Rubicon the rules were mostly clear. Then it was relatively straightforward to beat the AI. However, when attempting to play against the "robo" adversaries -- the ones with the absurdly low five second limit -- it was obvious that the only way to win was to somehow "cheat" and get an edge over the AI. 
 
 Following the breadcrumbs left by the Eng team led me to investigate the Chrome dev tools and discover `src/auto-move.js` and the ability to modify some of that file's functions. I also discovered the console which allowed me to run arbitrary Javascript. As I have been recently playing Security CTF games, my first thought was to begin playing around with board state and game state to see if I could give myself something akin to God Mode.
 
@@ -18,9 +18,9 @@ I next realized that the methods in `auto-move.js` comprise the essential functi
 
 From here, I needed to figure out how to programatically get data in and out of the browser environment. I had heard of local storage, but didn't really know much about it. I discovered it was fairly easy to use Chromedriver to read/write to browser local storage. Now I could modify the functions in `auto-move.js` to send game data to local storage, and read the actions that my -- as of yet to be created -- RL agent would submit.
 
-While alternating between reading literature for using RL in 2-player full information games, I occasionally stopped to play Rubicon myself. I hoped to get a better intution for how to best represent the game and what kinds of RL approaches may work. However, I soon noticed something rather surprising. The AI always appears to make the same moves for a given configuration of the board. In other words it appeared to have no stochasitc element to the moves it played. This means that moves I used to win earlier games should work every time. They just needed to be executed by a program that submits all the moves in less than 5 seconds. This was a relief because I was planning on spending at least a week training, evaluating, and tweaking an agent to play this game. Not to mention that the last 3 nights of staying up late to nerd out on this challenge were starting to take a toll.
+While alternating between reading literature for using RL in 2-player full information games, I occasionally stopped to play Rubicon myself. I hoped to get a better intution for how to best represent the game and what kinds of RL approaches may work. However, I soon noticed something rather surprising. The AI always appears to make the same moves for a given configuration of the board. In other words it appeared to have no stochasitc element to the moves it played. This means that moves I used to win earlier games should work every time. They just needed to be executed by a program that submits all the moves in less than 5 seconds. This was a relief because I was planning on spending at least a week training, evaluating, and tweaking an agent to play this game. All he last 3 nights of staying up late to nerd out on this challenge were starting to take a toll. I needed to sleep. But first, I needed to win.
 
-With this insight, I decided to go for the win before somebody at Synthesis pushed a code update that broke my highly effective yet extremely overfit strategy.
+With this insight, I decided to go for the quick win before somebody at Synthesis pushed a code update that broke my highly effective yet extremely overfit strategy.
 
 # How to Run This Code
 
