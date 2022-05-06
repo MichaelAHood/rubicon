@@ -3,21 +3,21 @@ import json
 
 def get_js_helpers():
     return {
-    "player_moved_function": """
+        "player_moved_function": """
         function PlayerMoved(playerId, nodeId, movesRemaining) {
             window.RequestGameState();
             move = `Player ${playerId} has moved: ${nodeId}. Remaining: ${movesRemaining}`;
             console.log(move);
         };
     """,
-    "receive_game_state_function": """
+        "receive_game_state_function": """
         function ReceiveGameState(gameState) {
             console.log("game state");
             window.localStorage.setItem("game-state", String(gameState));
             console.log(gameState);
         };
     """,
-    "play_game_template": """   
+        "play_game_template": """
         moves = $moves;
         window.RequestGameState();
         gameStateString = window.localStorage.getItem("game-state");
@@ -34,7 +34,7 @@ def get_js_helpers():
             window.localStorage.setItem("move-count", moveIx);
         };
     """,
-}
+    }
 
 
 def sanitize_json(s):
