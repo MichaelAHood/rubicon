@@ -30,7 +30,7 @@ make setup
 ```
 Note: the `get_chromedriver.sh` script assumes you are running on a mac, so change the chromedriver version as necessary.
 
-Install the dependencies. You'll also need `poetry` for managing Python dependencies. The dependencies are pretty simple, so you can probably replace `poetry` with something else if you have philosophical objections.
+Install the dependencies. You'll also need `poetry` for managing Python dependencies. The dependencies are pretty simple so you can probably replace `poetry` with something else if you have philosophical objections.
 ```
 make env
 ```
