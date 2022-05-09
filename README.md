@@ -18,9 +18,9 @@ I next realized that the methods in `auto-move.js` comprise the essential functi
 
 From here, I needed to figure out how to programmatically get data in and out of the browser environment. I had heard of local storage, but didn't really know much about it. I discovered it was fairly easy to use Chromedriver to read/write to browser local storage. Now I could modify the functions in `auto-move.js` to send game data to local storage, and read the actions that my -- as of yet to be created -- RL agent would submit.
 
-While alternating between reading literature for using RL in 2-player full information games, I occasionally stopped to play Rubicon myself. I hoped to get a better intuition for how to best represent the game and what kinds of RL approaches may work. However, I soon noticed something rather surprising. The AI always appears to make the same moves for a given configuration of the board. In other words it appeared to have no stochastic element to the moves it played. This means that moves I used to win earlier games should work every time. They just needed to be executed by a program that submits all the moves in less than 5 seconds. This was a relief because I was planning on spending at least a week training, evaluating, and tweaking an agent to play this game. The last three nights of staying up late to nerd out on this challenge were starting to take a toll. I needed to sleep. But first, I needed to win.
+While alternating between reading literature for using RL in 2-player full information games, I occasionally stopped to play Rubicon myself. I hoped to get a better intuition for how to best represent the game and what kinds of RL approaches may work. However, I soon noticed something rather surprising. The AI always appears to make the same moves for a given configuration of the board. In other words it appeared to have no stochastic element to the moves it played. This means that moves I used to win earlier games should work every time. They just needed to be executed by a program that submits all the moves in less than 5 seconds. This was a relief because I was planning on spending at least a week training, evaluating, and tweaking an agent to play this game. The last three nights of staying up late to nerd out on this challenge were starting to take a toll. I needed to sleep. But first I needed to win.
 
-With this insight, I decided to go for the quick win before somebody at Synthesis pushed a code update that broke my highly effective yet extremely overfit strategy.
+With this insight I decided to go for the quick win before somebody at Synthesis pushed a code update that broke my highly effective yet extremely overfit strategy.
 
 # How to Run This Code
 
@@ -30,7 +30,7 @@ make setup
 ```
 Note: the `get_chromedriver.sh` script assumes you are running on a mac, so change the chromedriver version as necessary.
 
-Install the dependencies. You'll also need `poetry` for managing Python dependencies. The dependencies are pretty simple, so you can probably replace `poetry` with something else if you philosophical objections.
+Install the dependencies. You'll also need `poetry` for managing Python dependencies. The dependencies are pretty simple, so you can probably replace `poetry` with something else if you have philosophical objections.
 ```
 make env
 ```
